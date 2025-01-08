@@ -159,6 +159,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\CAScene.h" />
+    <ClInclude Include="Source\Cells.h" />
     <ClInclude Include="Source\Color.h" />
     <ClInclude Include="Source\ETime.h" />
     <ClInclude Include="Source\ExampleScene.h" />
@@ -170,6 +172,7 @@
     <ClInclude Include="Source\Scene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\CAScene.cpp" />
     <ClCompile Include="Source\ETime.cpp" />
     <ClCompile Include="Source\ExampleScene.cpp" />
     <ClCompile Include="Source\Framebuffer.cpp" />

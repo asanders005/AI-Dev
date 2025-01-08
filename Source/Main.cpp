@@ -1,10 +1,10 @@
-#include "ExampleScene.h"
+#include "CAScene.h"
 #include <memory>
 #include <SDL.h>
 
 int main(int, char**)
 {
-	std::unique_ptr<ExampleScene> scene = std::make_unique<ExampleScene>();
+	std::unique_ptr<CAScene> scene = std::make_unique<CAScene>();
 
 	scene->Initialize();
 	while (!scene->IsQuit())
