@@ -1,8 +1,8 @@
 #include "CAScene.h"
 #include "Random.h"
 
-color_t white{ 255, 255, 255, 255 };
-color_t black{ 0, 0, 0, 255 };
+const color_t white{ 255, 255, 255, 255 };
+const color_t black{ 0, 0, 0, 255 };
 
 bool CAScene::Initialize()
 {
@@ -14,32 +14,18 @@ bool CAScene::Initialize()
 
 	m_framebuffer = std::make_unique<Framebuffer>(m_renderer, m_renderer.m_width / 2, m_renderer.m_height / 2);
 
-	m_cells = std::make_unique<Cells<bool>>(m_renderer.m_width / 2, m_renderer.m_height / 2);
+	m_cells = std::make_unique<Cells<uint8_t>>(m_renderer.m_width / 2, m_renderer.m_height / 2);
 
 	return true;
 }
 
 void CAScene::Update()
 {
-	m_time.Tick();
-	m_input.Update();
-
-	SDL_Event event;
-	while (SDL_PollEvent(&event))
-	{
-		if (event.type == SDL_QUIT)
-		{
-			m_quit = true;
-		}
-		if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE)
-		{
-			m_quit = true;
-		}
-	}
+	Scene::Update();
 
 	m_cells->Write(m_cells->m_width / 2, 0, 1);
 
-	int rule = 30;
+	int rule = 150;
 	for (int y = 0; y < m_cells->m_height - 1; y++)
 	{
 		for (int x = 1; x < m_cells->m_width - 1; x++)

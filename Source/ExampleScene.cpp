@@ -14,25 +14,6 @@ bool ExampleScene::Initialize()
 	return true;
 }
 
-void ExampleScene::Update()
-{
-	m_time.Tick();
-	m_input.Update();
-
-	SDL_Event event;
-	while (SDL_PollEvent(&event))
-	{
-		if (event.type == SDL_QUIT)
-		{
-			m_quit = true;
-		}
-		if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE)
-		{
-			m_quit = true;
-		}
-	}
-}
-
 void ExampleScene::Draw()
 {
 	m_framebuffer->Clear(color_t{ 0, 0, 0, 255 });

@@ -14,5 +14,5 @@ public:
 public:
 	std::unique_ptr<Framebuffer> m_framebuffer;
 
-	std::unique_ptr<Cells<bool>> m_cells;
+	std::unique_ptr<Cells<uint8_t>> m_cells;
 };
